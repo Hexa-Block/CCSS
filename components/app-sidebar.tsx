@@ -12,7 +12,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { LayoutBottomIcon, Wallet01Icon, RoboticIcon, Shield01Icon} from "@hugeicons/core-free-icons"
+import { LayoutBottomIcon, Wallet01Icon, Shield01Icon } from "@hugeicons/core-free-icons"
 
 // This is sample data.
 const data = {
@@ -43,11 +43,11 @@ const data = {
       items: [
         {
           title: "1.01 Key Material Generation",
-          url: "#",
+          url: "/dashboard/aspects/1.01",
         },
         {
           title: "1.02 Wallet Generation",
-          url: "#",
+          url: "/dashboard/aspects/1.02",
         },
         {
           title: "1.03 Key Material Storage",
@@ -76,19 +76,19 @@ const data = {
       items: [
         {
           title: "2.01 Security Tests/ Audits",
-          url: "#",
+          url: "/dashboard/aspects/2.01",
         },
         {
           title: "2.02 Log and Monitor",
-          url: "#",
+          url: "/dashboard/aspects/2.02",
         },
         {
           title: "2.03 Governance and Risk",
-          url: "#",
+          url: "/dashboard/aspects/2.03",
         },
         {
           title: "2.04 Key Compromise Documentation",
-          url: "#",
+          url: "/dashboard/aspects/2.04",
         },
       ],
     },

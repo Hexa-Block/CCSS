@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -20,7 +22,7 @@ import { ArrowRight01Icon } from "@hugeicons/core-free-icons"
 
 export function NavMain({
   items,
-}: {
+}: Readonly<{
   items: {
     title: string
     url: string
@@ -31,7 +33,7 @@ export function NavMain({
       url: string
     }[]
   }[]
-}) {
+}>) {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Categories</SidebarGroupLabel>
@@ -56,9 +58,9 @@ export function NavMain({
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
+                        <Link href={subItem.url}>
                           <span>{subItem.title}</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
