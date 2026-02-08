@@ -3,9 +3,7 @@
 import * as React from "react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { DocumentSwitcher } from "@/components/document-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -14,154 +12,85 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { LayoutBottomIcon, AudioWave01Icon, CommandIcon, ComputerTerminalIcon, RoboticIcon, BookOpen02Icon, Settings05Icon, CropIcon, PieChartIcon, MapsIcon } from "@hugeicons/core-free-icons"
+import { LayoutBottomIcon, Wallet01Icon, RoboticIcon, Shield01Icon} from "@hugeicons/core-free-icons"
 
 // This is sample data.
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  teams: [
+  documents: [
     {
-      name: "Acme Inc",
+      name: "CCSS v9.0 Table",
       logo: (
         <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
       ),
-      plan: "Enterprise",
+      version: "v9.0",
     },
     {
-      name: "Acme Corp.",
+      name: "CCSS v8.1 Table.",
       logo: (
-        <HugeiconsIcon icon={AudioWave01Icon} strokeWidth={2} />
+        <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
       ),
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: (
-        <HugeiconsIcon icon={CommandIcon} strokeWidth={2} />
-      ),
-      plan: "Free",
+      version: "v8.1",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Cryptographic Asset Management",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={ComputerTerminalIcon} strokeWidth={2} />
+        <HugeiconsIcon icon={Wallet01Icon} strokeWidth={2} />
       ),
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "1.01 Key Material Generation",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "1.02 Wallet Generation",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "1.03 Key Material Storage",
+          url: "#",
+        },
+        {
+          title: "1.04 Key Material Access",
+          url: "#",
+        },
+        {
+          title: "1.05 Key Material Usage",
+          url: "#",
+        },
+        {
+          title: "1.06 Data Sanitization Documentation",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Operations",
       url: "#",
       icon: (
-        <HugeiconsIcon icon={RoboticIcon} strokeWidth={2} />
+        <HugeiconsIcon icon={Shield01Icon} strokeWidth={2} />
       ),
       items: [
         {
-          title: "Genesis",
+          title: "2.01 Security Tests/ Audits",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "2.02 Log and Monitor",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "2.03 Governance and Risk",
+          url: "#",
+        },
+        {
+          title: "2.04 Key Compromise Documentation",
           url: "#",
         },
       ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={BookOpen02Icon} strokeWidth={2} />
-      ),
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={Settings05Icon} strokeWidth={2} />
-      ),
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={CropIcon} strokeWidth={2} />
-      ),
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={PieChartIcon} strokeWidth={2} />
-      ),
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={MapsIcon} strokeWidth={2} />
-      ),
     },
   ],
 }
@@ -170,14 +99,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <DocumentSwitcher documents={data.documents} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
