@@ -18,14 +18,14 @@ import { LayoutBottomIcon, Wallet01Icon, Shield01Icon } from "@hugeicons/core-fr
 const data = {
   documents: [
     {
-      name: "CCSS v9.0 Table",
+      name: "CCSS",
       logo: (
         <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
       ),
       version: "v9.0",
     },
     {
-      name: "CCSS v8.1 Table.",
+      name: "CCSS",
       logo: (
         <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
       ),
