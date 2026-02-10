@@ -625,5 +625,48 @@
         ]
       }
     ]
+  },
+  {
+    "aspectId": "2.04",
+    "aspectName": "Key Compromise Documentation",
+    "aspectObjective": "This aspect covers the existence and use of documented policies and procedures that define the actions that must be taken in the event key material or its operator/holder are believed to have become compromised. Entities must be prepared to deal with a situation where key material has – even potentially – become known, determinable, or destroyed. Policies and procedures to govern these events decrease the risks associated with lost funds and increase the availability of the system to its users. Examples of when a Key Compromise Policy (KCP) would be invoked include the identification of tampering of a tamper-evident seal placed on the media that stores key material, the apparent disappearance of an operator whose closest friends and family cannot identify their whereabouts, or the receipt of communication that credibly indicates an operator or key material is likely at risk of being compromised. The execution of KCP makes use of Approved Communication Channels to ensure KCP messages are only sent/received by authenticated actors.",
+    "controls": [
+      {
+        "controlId": "2.04.1",
+        "controlName": "Key Compromise Policy Existence",
+        "requirements": [
+          {
+            "requirementId": "2.04.1.1",
+            "level": "Level I",
+            "requirement": "An inventory of all key material exists and the entity has an awareness of which key material is critical to the successful operation of the CCSS Trusted Environment.",
+            "rationale": "This decreases the risks associated with lost funds."
+          },
+          {
+            "requirementId": "2.04.1.2",
+            "level": "Level I",
+            "requirement": "A Key Compromise Policy and procedures are documented. The following is addressed: 1. Each specific classification of key material used throughout the CCSS Trusted Environment. 2. A detailed plan of dealing with its compromise that includes the use of Approved Communication Channels during execution. 3. Identities of actors via roles (not names), and includes secondary actors in the event any primary actor is unavailable to carry out the KCP.",
+            "rationale": "This further decreases the risks associated with lost funds."
+          },
+          {
+            "requirementId": "2.04.1.3",
+            "level": "Level II",
+            "requirement": "The key material inventory is reviewed at least annually to ensure that all key material has been recorded and that the recorded information for key material is accurate and up-to-date.",
+            "rationale": "The key material inventory must be kept updated to ensure that all records of key material is accurate and up-to-date. An accurate key material inventory is vital when dealing with an incident involving key material as it provides the incident response personnel with critical information to assess the impact of a breach involving key material."
+          }
+        ]
+      },
+      {
+        "controlId": "2.04.2",
+        "controlName": "Key Compromise Policy Training and Rehearsals",
+        "requirements": [
+          {
+            "requirementId": "2.04.2.1",
+            "level": "Level III",
+            "requirement": "The Key Compromise Policy and procedures are tested at least annually to ensure their viability and to ensure personnel remain trained to use them in the event of a compromise. The following is addressed: 1. The testing exercise is documented and includes the attendees, scenarios tested, outcomes of testing, remediation required, actions, and the next testing date. 2. Any improvements identified from the test are updated in the Key Compromise Policy and procedures. 3. The testing includes ensuring backup(s) containing key material are reviewed and tested where applicable. 4. Any changes to the system's people, processes, and technology components trigger a test of the Key Compromise Policy and procedures.",
+            "rationale": "This ensures that any potentially compromised key material is quickly and efficiently handled. The frequency of testing may increase from at least annually based on the entity threat model as defined in requirement 2.03.2.1."
+          }
+        ]
+      }
+    ]
   }
 ]
