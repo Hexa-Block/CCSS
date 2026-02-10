@@ -417,5 +417,36 @@
         ]
       }
     ]
+  },
+  {
+    "aspectId": "1.06",
+    "aspectName": "Data Sanitization Documentation",
+    "aspectObjective": "This aspect covers the removal of key material from digital media. Due to the manner in which file systems allocate data on digital media, digital forensic techniques can be employed to read old data that has previously been sanitized. Proper sanitization of digital media ensures the proper removal of all key material, eliminating the risk of information leakage from decommissioned devices like servers, hard disk drives, and removable storage.",
+    "controls": [
+      {
+        "controlId": "1.06.1",
+        "controlName": "Data Sanitization Policy Existence",
+        "requirements": [
+          {
+            "requirementId": "1.06.1.1",
+            "level": "Level I",
+            "requirement": "Policy and procedure document(s) exist that conform to NIST SP 800-88 by defining the requirements for sanitizing and the destruction of media that holds key material. The policy and procedure documentation is read/understood by all staff who have access to key material.",
+            "rationale": "Implementation of a detailed policy of digital sanitization and physical destruction reduces error and the risk of information leakage."
+          }
+        ]
+      },
+      {
+        "controlId": "1.06.2",
+        "controlName": "Media Sanitization Audit Documentation",
+        "requirements": [
+          {
+            "requirementId": "1.06.2.1",
+            "level": "Level III",
+            "requirement": "An audit trail is maintained for every piece of sanitized media conforming to the NIST SP 800-88 recommendation. These audit documents identify personnel who performed the sanitization, the specific identifiers of the media that was sanitized, which tool and configuration was used to perform the sanitization, and all other relevant pertinent information.",
+            "rationale": "An audit trail provides evidence of media sanitization being performed."
+          }
+        ]
+      }
+    ]
   }
 ]
