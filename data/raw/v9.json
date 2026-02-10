@@ -237,46 +237,185 @@
     ]
   },
   {
-  "aspectId": "1.04",
-  "aspectName": "Key Material Access",
-  "aspectObjective": "This aspect covers the policies and procedures surrounding granting and revoking access to key material. Personnel typically have greater access to the CCSS Trusted Environment with respect to accessing its information, invoking privilege-restricted actions, and representing the entity to the public. Improper management of the onboarding and offboarding of personnel introduces risks of privileged accounts remaining when personnel depart, as well as unrevoked key material that persists in signing authority for certain transactions.",
-  "controls": [
-    {
-      "controlId": "1.04.1",
-      "controlName": "Grant/Revoke Documentation",
-      "requirements": [
-        {
-          "requirementId": "1.04.1.1",
-          "level": "Level I",
-          "requirement": "The entity maintains checklists that cover all tasks that are completed when personnel vacate or transition into key holder roles within the entity. These checklists have been reviewed by knowledgeable personnel to ensure 'least privilege principles' are applied to the system, as well as necessary access where required.",
-          "rationale": "This reduces the risks associated with missed privileges and the possession of un-revoked key material."
-        }
-      ]
-    },
-    {
-      "controlId": "1.04.2",
-      "controlName": "Approved Communication Channel",
-      "requirements": [
-        {
-          "requirementId": "1.04.2.1",
-          "level": "Level II",
-          "requirement": "All key holder grant/revoke requests are conducted over Approved Communication Channels.",
-          "rationale": "This provides high confidence of the identities of the communicating parties."
-        }
-      ]
-    },
-    {
-      "controlId": "1.04.3",
-      "controlName": "Grant/Revoke Audit Trail",
-      "requirements": [
-        {
-          "requirementId": "1.04.3.1",
-          "level": "Level III",
-          "requirement": "The entity's checklists include auditing information that record the identity of personnel that perform the grant/revoke operations. Each entry within the audit trail is attested to by personnel who performed that task.",
-          "rationale": "Documentation of the checklists and audit trail further verifies identities and ensures grant/revoke processes are completed."
-        }
-      ]
-    }
-  ]
-}
+    "aspectId": "1.04",
+    "aspectName": "Key Material Access",
+    "aspectObjective": "This aspect covers the policies and procedures surrounding granting and revoking access to key material. Personnel typically have greater access to the CCSS Trusted Environment with respect to accessing its information, invoking privilege-restricted actions, and representing the entity to the public. Improper management of the onboarding and offboarding of personnel introduces risks of privileged accounts remaining when personnel depart, as well as unrevoked key material that persists in signing authority for certain transactions.",
+    "controls": [
+      {
+        "controlId": "1.04.1",
+        "controlName": "Grant/Revoke Documentation",
+        "requirements": [
+          {
+            "requirementId": "1.04.1.1",
+            "level": "Level I",
+            "requirement": "The entity maintains checklists that cover all tasks that are completed when personnel vacate or transition into key holder roles within the entity. These checklists have been reviewed by knowledgeable personnel to ensure 'least privilege principles' are applied to the system, as well as necessary access where required.",
+            "rationale": "This reduces the risks associated with missed privileges and the possession of un-revoked key material."
+          }
+        ]
+      },
+      {
+        "controlId": "1.04.2",
+        "controlName": "Approved Communication Channel",
+        "requirements": [
+          {
+            "requirementId": "1.04.2.1",
+            "level": "Level II",
+            "requirement": "All key holder grant/revoke requests are conducted over Approved Communication Channels.",
+            "rationale": "This provides high confidence of the identities of the communicating parties."
+          }
+        ]
+      },
+      {
+        "controlId": "1.04.3",
+        "controlName": "Grant/Revoke Audit Trail",
+        "requirements": [
+          {
+            "requirementId": "1.04.3.1",
+            "level": "Level III",
+            "requirement": "The entity's checklists include auditing information that record the identity of personnel that perform the grant/revoke operations. Each entry within the audit trail is attested to by personnel who performed that task.",
+            "rationale": "Documentation of the checklists and audit trail further verifies identities and ensures grant/revoke processes are completed."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "aspectId": "1.05",
+    "aspectName": "Key Material Usage",
+    "aspectObjective": "This aspect covers the secure use of key material that minimizes the risks to the confidentiality of key material and the integrity of funds. This section does not cover the usage of key material backup(s) which are only used in the event operational key material is lost/damaged/inaccessible. A variety of risks are present when using key material that can lead to the loss of funds, including dirty signature vulnerabilities (i.e. re-used ‘R’ values), the opportunity for malware to copy or modify key material, and malicious insiders who use their authorized access to send unauthorized transactions.",
+    "controls": [
+      {
+        "controlId": "1.05.1",
+        "controlName": "Access Authentication to Key Material",
+        "requirements": [
+          {
+            "requirementId": "1.05.1.1",
+            "level": "Level I",
+            "requirement": "Access to the operational key material requires an identifier and at least 2 (two) distinct types of authentication factors.",
+            "rationale": "Multi-factor authentication restricts access and thus increases security. Examples of identifiers are username, email, GUID, etc. Examples of additional factors of authentication include Google Authenticator tokens, digital signatures from a private key, in-person ID verification, possession of a physical key or token, or a countersigning entity who can remotely attest to the authenticity of the key holder."
+          },
+          {
+            "requirementId": "1.05.1.2",
+            "level": "Level III",
+            "requirement": "Access to the operational key material requires an identifier (e.g., username, email, GUID) and at least 3 (three) distinct types of authentication factors.",
+            "rationale": "Additional factors of authentication restricts access and increases security. Similar to the requirement of 2 (two) additional factors in Level I, the other 3 (three) factors of authentication in Level III can take any form that provides confirmation of an authorized user’s identity."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.2",
+        "controlName": "Operational Key Material Environment",
+        "requirements": [
+          {
+            "requirementId": "1.05.2.1",
+            "level": "Level I",
+            "requirement": "Key material is only used within the CCSS Trusted Environment.",
+            "rationale": "This decreases/reduces the risk of unauthorized copies being made by malware, as well as mitigating the risk of storing (even inadvertently) key material on a machine, allowing it to be recovered by another user or intruder. The CCSS Trusted Environment guards against unauthorized access to key material, passwords, or other sensitive information."
+          },
+          {
+            "requirementId": "1.05.2.2",
+            "level": "Level I",
+            "requirement": "The key material is isolated from other operating systems and application processes to avoid unauthorized access or leakage of key material.",
+            "rationale": "Isolating operations involving key material such as signing transactions from other operating system and application processes ensures no compromised operating system or application process can impact the security of key operations. Use of Hardware Security Modules (HSM) and Trusted Execution Environments (TEE) are examples of mechanisms that isolate key operations from other system processes."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.3",
+        "controlName": "Operator Reference Checks",
+        "requirements": [
+          {
+            "requirementId": "1.05.3.1",
+            "level": "Level I",
+            "requirement": "All individual actors involved in operations with key material, or with the ability to impact the security of key generation, management, or usage have had their references checked prior to the actor being trusted with access to key material or operations.",
+            "rationale": "This helps ensure the person is being truthful about their past and were not dismissed from prior employment for reasons that would represent a risk to the entity."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.4",
+        "controlName": "Operator ID Checks",
+        "requirements": [
+          {
+            "requirementId": "1.05.4.1",
+            "level": "Level I",
+            "requirement": "All individual actors involved in operations with key material, or with the ability to impact the security of key generation, management, usage, or storage have undergone identity verification to ensure they are who they say they are. These checks are conducted prior to the actor being trusted with access to key material.",
+            "rationale": "This reduces the risks associated with impersonation and social engineering attacks which may result in access to entity or customer funds."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.5",
+        "controlName": "Operator Background Checks",
+        "requirements": [
+          {
+            "requirementId": "1.05.5.1",
+            "level": "Level I",
+            "requirement": "All individual actors involved in operations with key material, or with the ability to impact the security of key generation, management, usage, or storage have had background checks performed by law enforcement personnel or investigative firms. These checks are conducted prior to the actor being trusted with access to key material or operations and periodically; as allowed by local laws and regulations.",
+            "rationale": "This verifies that each key holder's identity has been confirmed and that their background shows no evidence of risk to the entity, if they held signing authority over the entity’s or users’ funds."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.6",
+        "controlName": "Key Management Training",
+        "requirements": [
+          {
+            "requirementId": "1.05.6.1",
+            "level": "Level I",
+            "requirement": "All individuals involved in key management operations, or with the ability to impact the security of key material, complete specific applicable training. This training is to be conducted on hire, and conducted before the actor being trusted with access to Key Material, and then annually.",
+            "rationale": "All individuals involved in key management operations includes key holders, operators, or other actors. This is in addition to any general security training required of all personnel, and should include any appropriate threats, risks, and controls related to the CCSS."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.7",
+        "controlName": "Key Management Responsibilities",
+        "requirements": [
+          {
+            "requirementId": "1.05.7.1",
+            "level": "Level I",
+            "requirement": "Key management roles and responsibilities are formally acknowledged in writing by each person who has access to key material. This includes personnel who have been delegated key management responsibilities.",
+            "rationale": "Any person who has access to key material must formally define and acknowledge their roles and responsibilities in writing. This ensures that each person with access to Key Material understands their roles and responsibilities to protect key material from unauthorized access and use. If a role or responsibility for key material is delegated to another person, then the person who has been delegated part or all of the roles and responsibilities also formally acknowledges their key management responsibilities."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.8",
+        "controlName": "Spend Verification",
+        "requirements": [
+          {
+            "requirementId": "1.05.8.1",
+            "level": "Level II",
+            "requirement": "Verification of fund destinations and amounts is performed via Approved Communication Channels prior to the use of key material.",
+            "rationale": "This verifies that fund destinations and amounts are accurate prior to sending funds."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.9",
+        "controlName": "Multi-Signer Mechanism Usage",
+        "requirements": [
+          {
+            "requirementId": "1.05.9.1",
+            "level": "Level I",
+            "requirement": "Key material for a wallet that implements a multi-signer mechanism is stored and used on different logical or physical devices.",
+            "rationale": "Storing key material for the same wallet that implements a multi-signer mechanism on the same logical or physical device exposes the key material to information leakage by either a malicious actor or malicious software. Ensuring each piece of key material of a wallet is stored and used on different logical or physical devices reduces these risks, thereby increasing security."
+          }
+        ]
+      },
+      {
+        "controlId": "1.05.10",
+        "controlName": "Deterministic Random Bit Generator (DRBG) Compliance",
+        "requirements": [
+          {
+            "requirementId": "1.05.10.1",
+            "level": "Level I",
+            "requirement": "Digital signatures follow best practices for the algorithm(s) implemented by the Key Management System.",
+            "rationale": "This ensures that all signing operations are performed correctly and that critical values used by the algorithm are unpredictable, preserving the integrity and security of the signatures. For example, in DSA, the 'k' value must be generated securely. Compliance can be achieved through the use of a deterministic random bit generator (DRBG) compliant with NIST SP 800-90A, a deterministic scheme compatible with RFC 6979, or other mechanisms that align with cryptographic best practices for the algorithm(s) used by the Key Management System."
+          }
+        ]
+      }
+    ]
+  }
 ]
