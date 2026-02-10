@@ -448,5 +448,60 @@
         ]
       }
     ]
+  },
+  {
+    "aspectId": "2.01",
+    "aspectName": "Security Tests/ Audits",
+    "aspectObjective": "This aspect covers third-party reviews of the security systems, technical controls, and policies that protect the CCSS Trusted Environment from all forms of risk as well as vulnerability and penetration tests designed to identify paths around existing controls. Regardless of the technical skills, knowledge, and experience of personnel who build and maintain the CCSS Trusted Environment, it has been proven that third-person reviews often identify risks and control deficiencies that were either overlooked or underestimated by personnel. For the same reasons that development companies require different people to test a product from those who write it, different people than those who implement a cryptocurrency system should assess its security. Third parties provide a different viewpoint and are independent of the technical controls and can be objective without risk of retaliation.",
+    "controls": [
+      {
+        "controlId": "2.01.1",
+        "controlName": "Security Development and Documentation",
+        "requirements": [
+          {
+            "requirementId": "2.01.1.1",
+            "level": "Level I",
+            "requirement": "An individual(s) with expertise in information security must be engaged in all stages of the design, development, deployment, and ongoing maintenance of systems providing cryptocurrency functions.",
+            "rationale": "This ensures that information security principles are integrated into every phase of the system's lifecycle. Information security must be considered in all aspects of the CCSS Trusted Environment, from initial concept to design, development, testing, deployment, and ongoing maintenance of the CCSS Trusted Environment's people, processes and technology components. Attempting to implement security controls once the system is in production is not recommended and is seldom effective."
+          },
+          {
+            "requirementId": "2.01.1.2",
+            "level": "Level II",
+            "requirement": "A regular security assessment that includes vulnerability and penetration testing has been completed by an independent, qualified third-party. Documentation shows that all concerns raised by the assessment have been evaluated for risk and addressed by the entity.",
+            "rationale": "Security audits, in addition to regular vulnerability and penetration tests, not only reduce the risks of unknown deficiencies in security but also reduce the overall cost of security as each audit builds on top of the last one’s results, allowing for a more focused and cost-effective assessment. Vulnerability and penetration tests decrease the risks associated with institutional blindness and provide confidence in the entity's controls and procedures."
+          },
+          {
+            "requirementId": "2.01.1.3",
+            "level": "Level III",
+            "requirement": "A regular security audit at a level similar to SOC 2, ISAE3402, or ISO/IEC 27001, that includes vulnerability, penetration testing, and code audit (if applicable) has been completed by an independent qualified third-party. Documentation shows that all concerns raised by the audit have been evaluated for risk, addressed by the entity, and known vulnerabilities have been removed from the CCSS Trusted Environment. Ongoing audits are scheduled on a (minimum) yearly basis.",
+            "rationale": "Security audits, in addition to regular vulnerability and penetration tests, not only reduce the risks of unknown deficiencies in security but also reduce the overall cost of security as each audit builds on top of the last one’s results, allowing for a more focused and cost-effective assessment. Vulnerability and penetration tests decrease the risks associated with institutional blindness and provide confidence in the entity's controls and procedures. Completing these regularly increases security."
+          }
+        ]
+      },
+      {
+        "controlId": "2.01.2",
+        "controlName": "Smart Contract Software Code Audit Documentation",
+        "requirements": [
+          {
+            "requirementId": "2.01.2.1",
+            "level": "Level I",
+            "requirement": "All smart contract software code versions deployed to the environment(s) where the entity stakeholders interact with the smart contract have been audited by an external third-party auditor skilled in the development languages used for the smart contract software. NOTE: the requirement is not applicable to any environments used for development, testing, or staging. This requirement applies to smart contracts deployed to the \"production\" network or the like.",
+            "rationale": "It is well documented that many breaches of cryptocurrency platforms occur through a smart contract due to poor secure coding techniques. By ensuring the smart contract software code is audited by an external third party skilled in the development languages used, the risk of an exploitable vulnerability is reduced."
+          },
+          {
+            "requirementId": "2.01.2.2",
+            "level": "Level II",
+            "requirement": "All smart contract software code audit reports are accessible to the entity stakeholders. The audit reports cover the currently deployed versions to the environment(s) where the entity stakeholders interact with the smart contract. NOTE: the requirement is not applicable to any environments used for development, testing, or staging. This requirement applies to smart contracts deployed to the \"production\" network or the like.",
+            "rationale": "A common issue is that a particular version of the code is audited by an external third-party auditor who approves the code, and the audit report is published, providing assurance to the stakeholders that the smart contract code has passed the audit. However, a newer version of the smart contract is deployed without being audited and may have unidentified vulnerabilities. This action causes a false sense of security for the entity stakeholders."
+          },
+          {
+            "requirementId": "2.01.2.3",
+            "level": "Level II",
+            "requirement": "All issues with a severity of medium or higher identified in a code audit of the smart contract software are addressed by the entity before deployment to the environment(s) where the entity stakeholders interact with the smart contract. NOTE: the requirement is not applicable to any environments used for development, testing, or staging. This requirement applies to smart contracts deployed to the \"production\" network or the like.",
+            "rationale": "It is not recommended that a smart contract with known vulnerabilities be deployed and remediation completed after deployment."
+          }
+        ]
+      }
+    ]
   }
 ]
