@@ -81,7 +81,7 @@
   {
     "aspectId": "1.02",
     "aspectName": "Wallet Generation",
-    "aspectObjective":"This aspect covers the generation of wallets or addresses that can receive digital assets. Wallets are generated using cryptographic signing methodologies that can support single-signer and multi-signer mechanisms. Furthermore, wallets can be generated individually (commonly referred to as “Just a Bunch Of Keys” or JBOK wallets) or in a deterministic way that allows a set of addresses/key pairs to be generated from a single master seed. Security of wallet generation is derived from the integrity of the wallet in the face of various risks such as a lost/stolen/compromised key material and the confidentiality of the wallet that would make it difficult to associate a wallet with a particular actor.",
+    "aspectObjective": "This aspect covers the generation of wallets or addresses that can receive digital assets. Wallets are generated using cryptographic signing methodologies that can support single-signer and multi-signer mechanisms. Furthermore, wallets can be generated individually (commonly referred to as “Just a Bunch Of Keys” or JBOK wallets) or in a deterministic way that allows a set of addresses/key pairs to be generated from a single master seed. Security of wallet generation is derived from the integrity of the wallet in the face of various risks such as a lost/stolen/compromised key material and the confidentiality of the wallet that would make it difficult to associate a wallet with a particular actor.",
     "controls": [
       {
         "controlId": "1.02.1",
@@ -146,95 +146,137 @@
     ]
   },
   {
-  "aspectId": "1.03",
-  "aspectName": "Key Material Storage",
-  "aspectObjective": "This aspect covers the secure storage and backup of key material to ensure it remains protected, recoverable, and inaccessible to unauthorized parties. Key material is encrypted and backed up, with backups stored securely and protected from environmental threats. To prevent unauthorized use or tampering, access to operational key material and its backups is tightly controlled.",
+    "aspectId": "1.03",
+    "aspectName": "Key Material Storage",
+    "aspectObjective": "This aspect covers the secure storage and backup of key material to ensure it remains protected, recoverable, and inaccessible to unauthorized parties. Key material is encrypted and backed up, with backups stored securely and protected from environmental threats. To prevent unauthorized use or tampering, access to operational key material and its backups is tightly controlled.",
+    "controls": [
+      {
+        "controlId": "1.03.1",
+        "controlName": "Encryption of Operational Key Material",
+        "requirements": [
+          {
+            "requirementId": "1.03.1.1",
+            "level": "Level I",
+            "requirement": "Key material is stored with the use of strong encryption when not in use.",
+            "rationale": "Strong encryption provides key material security."
+          }
+        ]
+      },
+      {
+        "controlId": "1.03.2",
+        "controlName": "Key Material Backup(s)",
+        "requirements": [
+          {
+            "requirementId": "1.03.2.1",
+            "level": "Level I",
+            "requirement": "A backup(s) of the operational key material exists.",
+            "rationale": "A backup(s) of the operational key material reduces risk of key material loss."
+          },
+          {
+            "requirementId": "1.03.2.2",
+            "level": "Level II",
+            "requirement": "A backup(s) exists for all key material used in the wallet. The backup can take any form (e.g., paper, digital, metal).",
+            "rationale": "A backup(s) of the key material used in the wallet reduces the risk of inability to access assets."
+          }
+        ]
+      },
+      {
+        "controlId": "1.03.3",
+        "controlName": "Environmental Protection for Key Material Backup(s)",
+        "requirements": [
+          {
+            "requirementId": "1.03.3.1",
+            "level": "Level I",
+            "requirement": "The backup(s) is protected against environmental risks.",
+            "rationale": "Protection against environmental risks reduce likelihood of key material loss. Common methods to achieve this include a water-tight bag for flood protection and a safe or firebox for fire protection. Specific mechanisms of environmental protection may change depending on the type of medium used for backup."
+          },
+          {
+            "requirementId": "1.03.3.2",
+            "level": "Level II",
+            "requirement": "The backup(s) of key material is stored in a geographically separate location(s) from the storage and usage of operational key material.",
+            "rationale": "Protection against environmental risks reduce likelihood of Key Material loss. Environmental risks include but are not limited to fire, flood, earthquake, and electrical surges. Common methods to achieve risk reduction include a water-tight bag for flood protection and a safe or firebox for fire protection. Specific mechanisms of environmental protection may change depending on the type of medium used for backup(s)."
+          }
+        ]
+      },
+      {
+        "controlId": "1.03.4",
+        "controlName": "Key Material Backup(s) Have Access Control",
+        "requirements": [
+          {
+            "requirementId": "1.03.4.1",
+            "level": "Level I",
+            "requirement": "The backup(s) is protected by access controls that prevent unauthorized parties from accessing it.",
+            "rationale": "Access-controlled protection reduces risk of unauthorized use of backup key material. Examples of this include safes, safe deposit boxes, or locked drawers where only the operator holds the key/combination for the lock."
+          }
+        ]
+      },
+      {
+        "controlId": "1.03.5",
+        "controlName": "Tamper-evident Key Material Backup(s)",
+        "requirements": [
+          {
+            "requirementId": "1.03.5.1",
+            "level": "Level II",
+            "requirement": "The backup(s) implements some form of tamper-evident mechanism that allows an operator to determine if it has been accessed.",
+            "rationale": "Reduces risk of backup(s) Key Material compromise. For physical backups, a secure method of achieving this involves a serial-numbered tamper-evident bag; however, properly sealed paper envelopes with handwritten signatures over the seal could also suffice, provided the specific envelopes in use are able to reveal evidence of tampering."
+          }
+        ]
+      },
+      {
+        "controlId": "1.03.6",
+        "controlName": "Key Material Backup(s) Encryption",
+        "requirements": [
+          {
+            "requirementId": "1.03.6.1",
+            "level": "Level III",
+            "requirement": "Backups of key material are stored with the use of strong encryption that is equal or greater to the security prescribed for the operational key material.",
+            "rationale": "Storing backups with strong encryption increases security."
+          }
+        ]
+      }
+    ]
+  },
+  {
+  "aspectId": "1.04",
+  "aspectName": "Key Material Access",
+  "aspectObjective": "This aspect covers the policies and procedures surrounding granting and revoking access to key material. Personnel typically have greater access to the CCSS Trusted Environment with respect to accessing its information, invoking privilege-restricted actions, and representing the entity to the public. Improper management of the onboarding and offboarding of personnel introduces risks of privileged accounts remaining when personnel depart, as well as unrevoked key material that persists in signing authority for certain transactions.",
   "controls": [
     {
-      "controlId": "1.03.1",
-      "controlName": "Encryption of Operational Key Material",
+      "controlId": "1.04.1",
+      "controlName": "Grant/Revoke Documentation",
       "requirements": [
         {
-          "requirementId": "1.03.1.1",
+          "requirementId": "1.04.1.1",
           "level": "Level I",
-          "requirement": "Key material is stored with the use of strong encryption when not in use.",
-          "rationale": "Strong encryption provides key material security."
+          "requirement": "The entity maintains checklists that cover all tasks that are completed when personnel vacate or transition into key holder roles within the entity. These checklists have been reviewed by knowledgeable personnel to ensure 'least privilege principles' are applied to the system, as well as necessary access where required.",
+          "rationale": "This reduces the risks associated with missed privileges and the possession of un-revoked key material."
         }
       ]
     },
     {
-      "controlId": "1.03.2",
-      "controlName": "Key Material Backup(s)",
+      "controlId": "1.04.2",
+      "controlName": "Approved Communication Channel",
       "requirements": [
         {
-          "requirementId": "1.03.2.1",
-          "level": "Level I",
-          "requirement": "A backup(s) of the operational key material exists.",
-          "rationale": "A backup(s) of the operational key material reduces risk of key material loss."
-        },
-        {
-          "requirementId": "1.03.2.2",
+          "requirementId": "1.04.2.1",
           "level": "Level II",
-          "requirement": "A backup(s) exists for all key material used in the wallet. The backup can take any form (e.g., paper, digital, metal).",
-          "rationale": "A backup(s) of the key material used in the wallet reduces the risk of inability to access assets."
+          "requirement": "All key holder grant/revoke requests are conducted over Approved Communication Channels.",
+          "rationale": "This provides high confidence of the identities of the communicating parties."
         }
       ]
     },
     {
-      "controlId": "1.03.3",
-      "controlName": "Environmental Protection for Key Material Backup(s)",
+      "controlId": "1.04.3",
+      "controlName": "Grant/Revoke Audit Trail",
       "requirements": [
         {
-          "requirementId": "1.03.3.1",
-          "level": "Level I",
-          "requirement": "The backup(s) is protected against environmental risks.",
-          "rationale": "Protection against environmental risks reduce likelihood of key material loss. Common methods to achieve this include a water-tight bag for flood protection and a safe or firebox for fire protection. Specific mechanisms of environmental protection may change depending on the type of medium used for backup."
-        },
-        {
-          "requirementId": "1.03.3.2",
-          "level": "Level II",
-          "requirement": "The backup(s) of key material is stored in a geographically separate location(s) from the storage and usage of operational key material.",
-          "rationale": "Protection against environmental risks reduce likelihood of Key Material loss. Environmental risks include but are not limited to fire, flood, earthquake, and electrical surges. Common methods to achieve risk reduction include a water-tight bag for flood protection and a safe or firebox for fire protection. Specific mechanisms of environmental protection may change depending on the type of medium used for backup(s)."
-        }
-      ]
-    },
-    {
-      "controlId": "1.03.4",
-      "controlName": "Key Material Backup(s) Have Access Control",
-      "requirements": [
-        {
-          "requirementId": "1.03.4.1",
-          "level": "Level I",
-          "requirement": "The backup(s) is protected by access controls that prevent unauthorized parties from accessing it.",
-          "rationale": "Access-controlled protection reduces risk of unauthorized use of backup key material. Examples of this include safes, safe deposit boxes, or locked drawers where only the operator holds the key/combination for the lock."
-        }
-      ]
-    },
-    {
-      "controlId": "1.03.5",
-      "controlName": "Tamper-evident Key Material Backup(s)",
-      "requirements": [
-        {
-          "requirementId": "1.03.5.1",
-          "level": "Level II",
-          "requirement": "The backup(s) implements some form of tamper-evident mechanism that allows an operator to determine if it has been accessed.",
-          "rationale": "Reduces risk of backup(s) Key Material compromise. For physical backups, a secure method of achieving this involves a serial-numbered tamper-evident bag; however, properly sealed paper envelopes with handwritten signatures over the seal could also suffice, provided the specific envelopes in use are able to reveal evidence of tampering."
-        }
-      ]
-    },
-    {
-      "controlId": "1.03.6",
-      "controlName": "Key Material Backup(s) Encryption",
-      "requirements": [
-        {
-          "requirementId": "1.03.6.1",
+          "requirementId": "1.04.3.1",
           "level": "Level III",
-          "requirement": "Backups of key material are stored with the use of strong encryption that is equal or greater to the security prescribed for the operational key material.",
-          "rationale": "Storing backups with strong encryption increases security."
+          "requirement": "The entity's checklists include auditing information that record the identity of personnel that perform the grant/revoke operations. Each entry within the audit trail is attested to by personnel who performed that task.",
+          "rationale": "Documentation of the checklists and audit trail further verifies identities and ensures grant/revoke processes are completed."
         }
       ]
     }
   ]
 }
-
 ]
