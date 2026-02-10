@@ -576,5 +576,54 @@
         ]
       }
     ]
+  },
+  {
+    "aspectId": "2.03",
+    "aspectName": "Governance and Risk",
+    "aspectObjective": "This aspect covers the governance policies, standards, and procedures that guide and control an entity to ensure its CCSS Trusted Environment is effective, efficient, and secure. It also includes the requirements for a comprehensive risk management program to identify potential risks to the CCSS Trusted Environment and apply appropriate risk treatments.",
+    "controls": [
+      {
+        "controlId": "2.03.1",
+        "controlName": "Governance",
+        "requirements": [
+          {
+            "requirementId": "2.03.1.1",
+            "level": "Level I",
+            "requirement": "A member of executive management is responsible for the security of the system and formally acknowledges their responsibilities in writing.",
+            "rationale": "Executive management establishes the security vision and strategy for the system by ensuring policies are in place, resources are properly allocated to the system's security, security awareness is promoted throughout the entity, and continuous improvement of the system's security is driven. An executive member is always assigned to this role. For instance, if the assigned executive cannot fulfil the role due to extended leave or termination of employment, another executive must take over the role immediately."
+          }
+        ]
+      },
+      {
+        "controlId": "2.03.2",
+        "controlName": "Risk Management",
+        "requirements": [
+          {
+            "requirementId": "2.03.2.1",
+            "level": "Level I",
+            "requirement": "The entity has identified security threats to the CCSS Trusted Environment and have defined and implemented controls to reduce the residual risk of an attack to an acceptable level using a threat model. The following considerations are addressed: 1. The entity reviews the threat model periodically to ensure it is up-to-date, the controls currently implemented are still effective, and the risk of an attack is reduced. 2. If a procedure requires a defined frequency to perform tasks for a control, such as reviewing audit logs, the threat model specifies the task frequency.",
+            "rationale": "Unless the entity identifies security threats, e.g., those who wish to harm the CCSS Trusted Environment, it cannot fully protect the CCSS Trusted Environment against threats."
+          },
+          {
+            "requirementId": "2.03.2.2",
+            "level": "Level II",
+            "requirement": "The entity implements a risk management program based on industry recognized risk management standards and frameworks such as ISO/IEC 27005 and NIST SP 800-37.",
+            "rationale": "Utilizing an industry-recognised risk management program ensures the entity is using best practices to manage risk for the CCSS Trusted Environment."
+          }
+        ]
+      },
+      {
+        "controlId": "2.03.3",
+        "controlName": "Service Provider Management",
+        "requirements": [
+          {
+            "requirementId": "2.03.3.1",
+            "level": "Level I",
+            "requirement": "Service provider management is implemented for any vendor or service provider that could impact the security of the CCSS Trusted Environment and addresses: 1. Procurement processes to ensure any vendor or service provider meets applicable CCSS requirements before contractual engagement. 2. Annual review of the vendor or service provider's compliance with applicable CCSS requirements. The frequency of review may increase from at least annually based on the entity threat model as defined in requirement 2.03.2.1.",
+            "rationale": "Before a service provider is granted access to key material or has access to the CCSS Trusted Environment, the entity undertakes a due diligence process to ensure the service provider's security posture meets the entity's security policy and procedures requirements."
+          }
+        ]
+      }
+    ]
   }
 ]
