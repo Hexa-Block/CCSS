@@ -59,15 +59,26 @@ export const columns: ColumnDef<StandardTable>[] = [
   {
     accessorKey: "level",
     header: "Level",
+    filterFn: (row, id, value) => {
+      const selected = value as string[] | undefined
+      if (!selected?.length) return true
+
+      const raw = row.getValue(id)
+      if (typeof raw !== "string") return false
+
+      return selected.includes(raw)
+    },
     cell: ({ row }) => {
-      const level = row.getValue("level") as StandardTable["level"]
+      const level = row.getValue("level")
+      if (typeof level !== "string") return null
+      const levelValue = level as StandardTable["level"]
 
       return (
         <Badge
           variant="outline"
-          className={`whitespace-nowrap text-xs ${levelBadgeClass[level]}`}
+          className={`whitespace-nowrap text-xs ${levelBadgeClass[levelValue]}`}
         >
-          {level}
+          {levelValue}
         </Badge>
       )
     },

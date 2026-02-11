@@ -1,8 +1,9 @@
+/* @react-compiler-disable */
 "use client";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { DataTableToolbar } from "./data-table-toolbar"
 
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -10,6 +11,7 @@ import {
   ArrowLeftDoubleIcon,
   ArrowRight01Icon,
   ArrowRightDoubleIcon,
+  Settings02Icon,
 } from "@hugeicons/core-free-icons";
 
 import {
@@ -25,6 +27,8 @@ import {
   flexRender,
   VisibilityState,
   getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
   getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
@@ -55,7 +59,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: Readonly<DataTableProps<TData, TValue>>) {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -67,6 +71,8 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+  getFacetedRowModel: getFacetedRowModel(),
+  getFacetedUniqueValues: getFacetedUniqueValues(),
     onColumnVisibilityChange: setColumnVisibility,
     getPaginationRowModel: getPaginationRowModel(),
     state: {
@@ -77,17 +83,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter requirements..."
-          value={
-            (table.getColumn("requirementId")?.getFilterValue() as string) ?? ""
-          }
-          onChange={(event) =>
-            table.getColumn("requirementId")?.setFilterValue(event.target.value)
-          }
-          className="h-8 w-56 bg-transparent  text-sm shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
-        />
+      <div className="flex items-center gap-2 py-4">
+        <DataTableToolbar table={table} />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
@@ -95,7 +92,8 @@ export function DataTable<TData, TValue>({
               size="sm"
               className="ml-auto h-8 px-3 text-sm"
             >
-              Columns
+              <HugeiconsIcon icon={Settings02Icon} size={16} className="mr-2" />
+              View
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -184,7 +182,7 @@ export function DataTable<TData, TValue>({
               <SelectTrigger
                 size="sm"
                 id="rows-per-page"
-                className=" !h-8 !rounded-sm "
+                className="!h-8 !rounded-sm"
               >
                 <SelectValue
                   placeholder={table.getState().pagination.pageSize}
