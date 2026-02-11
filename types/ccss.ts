@@ -28,6 +28,12 @@ export type RequirementRow = {
   rationale: string;
 }
 
+export type CatalogStats = {
+  aspects: number;
+  controls: number;
+  requirements: number;
+}
+
 
 export type StandardTable = {
   aspectId: string

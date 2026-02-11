@@ -1,14 +1,19 @@
 import { Card, CardContent } from "@/components/ui/cards/card"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Archive01Icon, FoldersIcon, File02Icon } from "@hugeicons/core-free-icons"
+import type { CatalogStats } from "@/types/ccss"
 
-const cards = [
-  { icon: Archive01Icon, value: "10", title: "Aspects" },
-  { icon: FoldersIcon, value: "39", title: "Controls" },
-  { icon: File02Icon, value: "56", title: "Requirements" },
-]
+interface StatisticCardProps {
+  stats: CatalogStats
+}
 
-export default function StatisticCard() {
+export default function StatisticCard({ stats }: Readonly<StatisticCardProps>) {
+  const cards = [
+    { icon: Archive01Icon, value: stats.aspects.toLocaleString(), title: "Aspects" },
+    { icon: FoldersIcon, value: stats.controls.toLocaleString(), title: "Controls" },
+    { icon: File02Icon, value: stats.requirements.toLocaleString(), title: "Requirements" },
+  ]
+
   return (
     <section className="@container w-full">
       <div className="grid w-full grid-cols-1 gap-4 @xl:grid-cols-3">
