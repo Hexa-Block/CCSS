@@ -17,6 +17,7 @@ const levelBadgeClass: Record<StandardTable["level"], string> = {
 }
 
 export const columns: ColumnDef<StandardTable>[] = [
+  
   { accessorKey: "aspectId", header: "Aspect ID" },
   { accessorKey: "aspectName", header: "Aspect Name" },
   { accessorKey: "controlId", header: "Control ID" },
