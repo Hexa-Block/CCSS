@@ -51,19 +51,19 @@ const data = {
         },
         {
           title: "1.03 Key Material Storage",
-          url: "#",
+          url: "/dashboard/aspects/1.03",
         },
         {
           title: "1.04 Key Material Access",
-          url: "#",
+          url: "/dashboard/aspects/1.04",
         },
         {
           title: "1.05 Key Material Usage",
-          url: "#",
+          url: "/dashboard/aspects/1.05",
         },
         {
           title: "1.06 Data Sanitization Documentation",
-          url: "#",
+          url: "/dashboard/aspects/1.06",
         },
       ],
     },
