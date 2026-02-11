@@ -37,14 +37,30 @@ export function DataTableFacetedFilter<TData, TValue>({
   column,
   title,
   options,
-}: DataTableFacetedFilterProps<TData, TValue>) {
+}: Readonly<DataTableFacetedFilterProps<TData, TValue>>) {
   const facets = column?.getFacetedUniqueValues();
   const selectedValues = new Set(column?.getFilterValue() as string[]);
+  const levelDotClass = (value: string) => {
+    switch (value) {
+      case "Level I":
+        return "bg-red-500/80"
+      case "Level II":
+        return "bg-yellow-500/80"
+      case "Level III":
+        return "bg-blue-500/80"
+      default:
+        return "bg-muted-foreground/60"
+    }
+  }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="h-8 border-dashed">
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 border-dashed hover:bg-muted/70 dark:hover:bg-muted/70 dark:hover:text-foreground"
+        >
           <HugeiconsIcon icon={AddCircleIcon} size={16} />
           {title}
           {selectedValues?.size > 0 && (
@@ -93,6 +109,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                 return (
                   <CommandItem
                     key={option.value}
+                    className="flex w-full items-center gap-2"
                     onSelect={() => {
                       if (isSelected) {
                         selectedValues.delete(option.value);
@@ -105,25 +122,33 @@ export function DataTableFacetedFilter<TData, TValue>({
                       );
                     }}
                   >
-                    <div
-                      className={cn(
-                        "flex size-4 items-center justify-center rounded-[4px] border",
-                        isSelected
-                          ? "bg-primary border-primary text-primary-foreground"
-                          : "border-input [&_svg]:invisible",
-                      )}
-                    >
-                      <HugeiconsIcon
-                        icon={Tick02Icon}
-                        className="text-primary-foreground size-3.5"
+                    <div className="flex min-w-0 flex-1 items-center gap-2">
+                      <div
+                        className={cn(
+                          "flex size-4 items-center justify-center rounded-[4px] border",
+                          isSelected
+                            ? "bg-primary border-primary text-primary-foreground"
+                            : "border-input [&_svg]:invisible",
+                        )}
+                      >
+                        <HugeiconsIcon
+                          icon={Tick02Icon}
+                          className="text-primary-foreground size-3.5"
+                        />
+                      </div>
+                      <span
+                        className={cn(
+                          "size-2.5 rounded-full",
+                          levelDotClass(option.value),
+                        )}
+                        aria-hidden="true"
                       />
+                      <span className="flex-1">
+                        {option.label}
+                      </span>
                     </div>
-                    {option.icon && (
-                      <option.icon className="text-muted-foreground size-4" />
-                    )}
-                    <span>{option.label}</span>
-                    {facets?.get(option.value) && (
-                      <span className="text-muted-foreground ml-auto flex size-4 items-center justify-center font-mono text-xs">
+                    {facets?.get(option.value) !== undefined && (
+                      <span className="text-muted-foreground text-right font-mono text-xs">
                         {facets.get(option.value)}
                       </span>
                     )}

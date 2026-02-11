@@ -90,7 +90,7 @@ export function DataTable<TData, TValue>({
             <Button
               variant="outline"
               size="sm"
-              className="ml-auto h-8 px-3 text-sm"
+              className="ml-auto h-8 px-3 text-sm hover:bg-muted/70 dark:hover:bg-muted/70 dark:hover:text-foreground"
             >
               <HugeiconsIcon icon={Settings02Icon} size={16} className="mr-2" />
               View
@@ -207,7 +207,7 @@ export function DataTable<TData, TValue>({
         <div className="flex items-center justify-end gap-2">
           <Button
             variant="outline"
-            className="hidden h-8 w-8 p-0 lg:flex"
+            className="hidden h-8 w-8 p-0 lg:flex hover:bg-muted/70 dark:hover:bg-muted/70 dark:hover:text-foreground"
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
           >
@@ -217,7 +217,7 @@ export function DataTable<TData, TValue>({
 
           <Button
             variant="outline"
-            className="h-8 w-8 p-0"
+            className="h-8 w-8 p-0 hover:bg-muted/70 dark:hover:bg-muted/70 dark:hover:text-foreground"
             size="icon"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
@@ -228,7 +228,7 @@ export function DataTable<TData, TValue>({
 
           <Button
             variant="outline"
-            className="h-8 w-8 p-0"
+            className="h-8 w-8 p-0 hover:bg-muted/70 dark:hover:bg-muted/70 dark:hover:text-foreground"
             size="icon"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
@@ -239,7 +239,7 @@ export function DataTable<TData, TValue>({
 
           <Button
             variant="outline"
-            className="hidden h-8 w-8 p-0 lg:flex"
+            className="hidden h-8 w-8 p-0 lg:flex hover:bg-muted/70 dark:hover:bg-muted/70 dark:hover:text-foreground"
             size="icon"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
