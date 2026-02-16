@@ -18,14 +18,14 @@ import { LayoutBottomIcon, Wallet01Icon, Shield01Icon } from "@hugeicons/core-fr
 const data = {
   documents: [
     {
-      name: "CCSS Version 9",
+      name: "CCSS",
       logo: (
         <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
       ),
       version: "v9.0",
     },
     {
-      name: "CCSS Version 8",
+      name: "CCSS",
       logo: (
         <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
       ),
@@ -43,27 +43,27 @@ const data = {
       items: [
         {
           title: "1.01 Key Material Generation",
-          url: "/dashboard/aspects/1.01",
+          url: "/dashboard/aspect/1.01",
         },
         {
           title: "1.02 Wallet Generation",
-          url: "/dashboard/aspects/1.02",
+          url: "/dashboard/aspect/1.02",
         },
         {
           title: "1.03 Key Material Storage",
-          url: "/dashboard/aspects/1.03",
+          url: "/dashboard/aspect/1.03",
         },
         {
           title: "1.04 Key Material Access",
-          url: "/dashboard/aspects/1.04",
+          url: "/dashboard/aspect/1.04",
         },
         {
           title: "1.05 Key Material Usage",
-          url: "/dashboard/aspects/1.05",
+          url: "/dashboard/aspect/1.05",
         },
         {
           title: "1.06 Data Sanitization Documentation",
-          url: "/dashboard/aspects/1.06",
+          url: "/dashboard/aspect/1.06",
         },
       ],
     },
@@ -76,19 +76,19 @@ const data = {
       items: [
         {
           title: "2.01 Security Tests/ Audits",
-          url: "/dashboard/aspects/2.01",
+          url: "/dashboard/aspect/2.01",
         },
         {
           title: "2.02 Log and Monitor",
-          url: "/dashboard/aspects/2.02",
+          url: "/dashboard/aspect/2.02",
         },
         {
           title: "2.03 Governance and Risk",
-          url: "/dashboard/aspects/2.03",
+          url: "/dashboard/aspect/2.03",
         },
         {
           title: "2.04 Key Compromise Documentation",
-          url: "/dashboard/aspects/2.04",
+          url: "/dashboard/aspect/2.04",
         },
       ],
     },

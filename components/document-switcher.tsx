@@ -17,7 +17,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { UnfoldMoreIcon, PlusSignIcon } from "@hugeicons/core-free-icons"
+import { UnfoldMoreIcon } from "@hugeicons/core-free-icons"
 
 export function DocumentSwitcher({
   documents,
@@ -48,8 +48,7 @@ export function DocumentSwitcher({
                 {activeDocument.logo}
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{activeDocument.name}</span>
-                <span className="truncate text-xs">{activeDocument.version}</span>
+                <span className="truncate font-medium">{activeDocument.name} {activeDocument.version}</span>
               </div>
               <HugeiconsIcon icon={UnfoldMoreIcon} strokeWidth={2} className="ml-auto" />
             </SidebarMenuButton>
@@ -63,19 +62,27 @@ export function DocumentSwitcher({
             <DropdownMenuLabel className="text-muted-foreground text-xs">
               Standard Versions
             </DropdownMenuLabel>
-            {documents.map((document, index) => (
-              <DropdownMenuItem
-                key={document.name}
-                onClick={() => setActiveDocument(document)}
-                className="gap-2 p-2"
-              >
-                <div className="flex size-6 items-center justify-center rounded-md border">
-                  {document.logo}
-                </div>
-                {document.name}
-                <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
-              </DropdownMenuItem>
-            ))}
+            {documents.map((document, index) => {
+              const isDisabled = document.version === "v8.1"
+              const key = `${document.name}-${document.version}`
+
+              return (
+                <DropdownMenuItem
+                  key={key}
+                  onClick={
+                    isDisabled ? undefined : () => setActiveDocument(document)
+                  }
+                  disabled={isDisabled}
+                  className="gap-2 p-2"
+                >
+                  <div className="flex size-6 items-center justify-center rounded-md border">
+                    {document.logo}
+                  </div>
+                  {document.name} {document.version}
+                  <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
+                </DropdownMenuItem>
+              )
+            })}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
