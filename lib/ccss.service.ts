@@ -1,6 +1,37 @@
 import raw from "@/data/raw/v9.json";
 import type { Aspect, CatalogStats, RequirementRow } from "@/types/ccss";
 
+export type AspectListItem = {
+  id: string;
+  name: string;
+};
+
+export function getAspects(): AspectListItem[] {
+  const aspects = raw as Aspect[];
+  return aspects.map((a) => ({ id: a.aspectId, name: a.aspectName }));
+}
+
+export function getAspectNameById(aspectId: string): string | null {
+  const aspects = raw as Aspect[];
+  const found = aspects.find((a) => a.aspectId === aspectId);
+  return found?.aspectName ?? null;
+}
+
+export type AspectCategory = "Cryptographic Asset Management" | "Operations";
+
+export function getAspectCategoryById(aspectId: string): AspectCategory | null {
+  const normalized = aspectId.trim();
+  if (!normalized) return null;
+
+  // Convención CCSS (según vuestro criterio actual):
+  // - 1.xx => Cryptographic Asset Management
+  // - 2.xx => Operations
+  if (normalized.startsWith("1")) return "Cryptographic Asset Management";
+  if (normalized.startsWith("2")) return "Operations";
+
+  return null;
+}
+
 export function getRequirements(filters?: {
   level?: RequirementRow["level"];
   aspectId?: string;

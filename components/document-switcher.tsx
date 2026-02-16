@@ -2,6 +2,8 @@
 
 import * as React from "react"
 
+import { useDocument } from "@/components/document-provider"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,15 +23,15 @@ import { UnfoldMoreIcon } from "@hugeicons/core-free-icons"
 
 export function DocumentSwitcher({
   documents,
-}: {
+}: Readonly<{
   documents: {
     name: string
     logo: React.ReactNode
     version: string
   }[]
-}) {
+}>) {
   const { isMobile } = useSidebar()
-  const [activeDocument, setActiveDocument] = React.useState(documents[0])
+  const { activeDocument, setActiveDocument } = useDocument()
 
   if (!activeDocument) {
     return null

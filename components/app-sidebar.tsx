@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { NavMain } from "@/components/nav-main"
 import { DocumentSwitcher } from "@/components/document-switcher"
+import { useDocument } from "@/components/document-provider"
 import {
   Sidebar,
   SidebarContent,
@@ -12,26 +13,10 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { LayoutBottomIcon, Wallet01Icon, Shield01Icon } from "@hugeicons/core-free-icons"
+import { Wallet01Icon, Shield01Icon } from "@hugeicons/core-free-icons"
 
 // This is sample data.
 const data = {
-  documents: [
-    {
-      name: "CCSS",
-      logo: (
-        <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
-      ),
-      version: "v9.0",
-    },
-    {
-      name: "CCSS",
-      logo: (
-        <HugeiconsIcon icon={LayoutBottomIcon} strokeWidth={2} />
-      ),
-      version: "v8.1",
-    },
-  ],
   navMain: [
     {
       title: "Cryptographic Asset Management",
@@ -96,10 +81,12 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { documents } = useDocument()
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <DocumentSwitcher documents={data.documents} />
+        <DocumentSwitcher documents={documents} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
