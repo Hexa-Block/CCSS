@@ -17,6 +17,8 @@ The CCSS catalog is easier to work with when it is searchable, filterable, and p
 
 - Browse CCSS **aspects**, **controls**, and **requirements** in a single table
 - Filter by **Level I / II / III** (and drill down by aspect/control)
+- Theme selector (light/dark/system)
+- Column view (show/hide columns)
 - Quick stats for number of aspects/controls/requirements
 - Clean UI built with Next.js + Tailwind + shadcn/ui
 
