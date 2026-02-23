@@ -2,12 +2,11 @@ import type { Metadata } from "next"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   SecurityCheckIcon,
-  Compass01Icon,
+  CompassIcon,
   Database01Icon,
   CodeIcon,
   GithubIcon,
   ArrowUpRight01Icon,
-  OpenSourceIcon,
   Linkedin01Icon,
   Mail01Icon,
   Globe02Icon,
@@ -122,7 +121,7 @@ CryptoCurrency Security Standard (CCSS) is a set of requirements for all informa
     ),
   },
   {
-    icon: Compass01Icon,
+    icon: CompassIcon,
     title: "About this project",
     body: (
       <>
@@ -141,9 +140,9 @@ CryptoCurrency Security Standard (CCSS) is a set of requirements for all informa
     icon: Database01Icon,
     title: "Data sources",
     body: (
-      <p className="text-muted-foreground">
+      <p>
         Datasets are static JSON files under{" "}
-        <code className="bg-muted-foreground/30 px-1 py-0.5 text-[0.625rem] font-mono">
+        <code className="rounded bg-muted-foreground/30 px-1 py-0.5 text-[0.625rem] font-mono">
           data/raw/
         </code>
         . Spot a mismatch? Open an issue or submit a PR with a reference.
@@ -157,7 +156,7 @@ CryptoCurrency Security Standard (CCSS) is a set of requirements for all informa
       <div className="flex flex-wrap gap-1.5">
         {["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix"].map(
           (t) => (
-            <Badge key={t} variant="secondary" className="bg-muted-foreground/15">
+            <Badge key={t} variant="secondary" className="bg-muted-foreground/30">
               {t}
             </Badge>
           ),
@@ -198,7 +197,7 @@ CryptoCurrency Security Standard (CCSS) is a set of requirements for all informa
     body: (
       <>
         <p>
-          Created and maintained by Pedro Frias (HexaBlock).
+          Created and maintained by <a href="https://hexablock.io/about" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground transition-colors">Pedro Frias</a> (HexaBlock).
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <Button variant="outline" size="sm" asChild>
@@ -252,7 +251,7 @@ export default function AboutPage() {
       <div className="flex items-center gap-3">
         <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border bg-muted/20">
           <HugeiconsIcon
-            icon={OpenSourceIcon}
+            icon={CompassIcon}
             strokeWidth={2}
             className="size-4.5 text-muted-foreground"
           />
@@ -288,8 +287,8 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="min-w-0 flex-1 space-y-1">
-                    <div className="text-sm font-medium">{section.title}</div>
-                    <div className="text-sm text-muted-foreground leading-relaxed">
+                    <div className="text-sm font-medium text-muted-foreground">{section.title}</div>
+                    <div className="text-sm leading-relaxed">
                       {section.body}
                     </div>
                   </div>
