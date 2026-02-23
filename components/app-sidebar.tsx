@@ -110,7 +110,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip="About">
-                <Link href="/dashboard/about">
+                <Link href="/about">
                   <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} />
                   <span>About</span>
                 </Link>
