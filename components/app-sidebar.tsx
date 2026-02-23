@@ -8,12 +8,16 @@ import { useDocument } from "@/components/document-provider"
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+  SidebarGroup,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Wallet01Icon, Shield01Icon } from "@hugeicons/core-free-icons"
+import { Wallet01Icon, Shield01Icon, InformationCircleIcon, DashboardSquare01Icon } from "@hugeicons/core-free-icons"
+import Link from "next/link"
 
 // This is sample data.
 const data = {
@@ -89,10 +93,32 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <DocumentSwitcher documents={documents} />
       </SidebarHeader>
       <SidebarContent>
+        <SidebarGroup>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild tooltip="Dashboard">
+                <Link href="/dashboard">
+                  <HugeiconsIcon icon={DashboardSquare01Icon} strokeWidth={2} />
+                  <span>Dashboard</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
         <NavMain items={data.navMain} />
+        <SidebarGroup>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild tooltip="About">
+                <Link href="/dashboard/about">
+                  <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} />
+                  <span>About</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

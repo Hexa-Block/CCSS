@@ -1,14 +1,16 @@
 "use client"
 
 import * as React from "react"
-import { useParams } from "next/navigation"
+import { useParams, usePathname } from "next/navigation"
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { ClientOnly } from "@/components/client-only"
 import { DocumentProvider, useDocument } from "@/components/document-provider"
 import { getAspectCategoryById, getAspectNameById } from "@/lib/ccss.service"
+import Link from "next/link"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { LayoutBottomIcon } from "@hugeicons/core-free-icons"
+import { LayoutBottomIcon, InformationCircleIcon } from "@hugeicons/core-free-icons"
+import { Button } from "@/components/ui/button"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -60,8 +62,10 @@ export default function DashboardLayout({
 
 function DashboardHeader() {
   const { activeDocument } = useDocument()
+  const pathname = usePathname()
   const params = useParams<{ aspectId?: string }>()
   const aspectId = params?.aspectId ?? null
+  const isAbout = pathname?.startsWith("/dashboard/about")
   const aspectCategory = React.useMemo(
     () => (aspectId ? getAspectCategoryById(aspectId) : null),
     [aspectId]
@@ -114,12 +118,27 @@ function DashboardHeader() {
                   </>
                 ) : null}
               </>
+            ) : isAbout ? (
+              <>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>About</BreadcrumbPage>
+                </BreadcrumbItem>
+              </>
             ) : null}
           </BreadcrumbList>
         </Breadcrumb>
 
         <div className="ml-auto flex items-center gap-2">
-          <ModeToggle />
+          <Button variant="ghost" size="icon" className="cursor-pointer" asChild>
+            <Link href="/dashboard/about">
+              <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} />
+              <span className="sr-only">About</span>
+            </Link>
+          </Button>
+          <ClientOnly>
+            <ModeToggle />
+          </ClientOnly>
         </div>
       </div>
     </header>

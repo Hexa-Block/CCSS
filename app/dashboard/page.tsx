@@ -1,6 +1,7 @@
 import StatisticCard from "@/components/ui/cards/statistic-cards/statistic-card";
 import { columns } from "@/components/standard/columns";
 import { DataTable } from "@/components/ui/data-table";
+import { ClientOnly } from "@/components/client-only";
 import { getCatalogStats, getRequirements } from "@/lib/ccss.service";
 import type { RequirementRow } from "@/types/ccss";
 
@@ -15,7 +16,9 @@ export default async function Page() {
   return (
     <>
       <StatisticCard stats={stats} />
-      <DataTable columns={columns} data={data} />
+      <ClientOnly>
+        <DataTable columns={columns} data={data} />
+      </ClientOnly>
     </>
   );
 }
