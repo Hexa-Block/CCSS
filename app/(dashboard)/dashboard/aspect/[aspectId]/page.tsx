@@ -4,6 +4,10 @@ import { DataTable } from "@/components/ui/data-table";
 import { getRequirements } from "@/lib/ccss.service";
 import type { CatalogStats, RequirementRow } from "@/types/ccss";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
+
 type RouteParams = { aspectId: string }
 
 type PageProps = { params: Promise<RouteParams> }

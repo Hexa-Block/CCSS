@@ -5,6 +5,10 @@ import { ClientOnly } from "@/components/client-only";
 import { getCatalogStats, getRequirements } from "@/lib/ccss.service";
 import type { RequirementRow } from "@/types/ccss";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
+
 async function getData(): Promise<RequirementRow[]> {
   const requirements = getRequirements();
   return requirements;
