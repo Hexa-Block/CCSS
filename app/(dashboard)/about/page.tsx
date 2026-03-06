@@ -65,6 +65,17 @@ const sections: {
         <p>
 CryptoCurrency Security Standard (CCSS) is a set of requirements for all information systems that make use of cryptocurrencies, including exchanges, web applications, and cryptocurrency storage solutions. By standardizing the techniques and methodologies used by systems around the globe, end-users will be able to easily make educated decisions about which products and services to use and with which companies they wish to align.
         </p>
+        <p className="mt-2 text-muted-foreground">
+          Recommendations regarding CCSS requirements or the Standard itself
+          should be directed to{" "}
+          <a
+            href="mailto:info@cryptoconsortium.org"
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            info@cryptoconsortium.org
+          </a>
+          {"."}
+        </p>
 
         <Button variant="outline" size="sm" className="mt-3" asChild>
           <a
@@ -149,7 +160,7 @@ CryptoCurrency Security Standard (CCSS) is a set of requirements for all informa
         <code className="rounded bg-muted-foreground/30 px-1 py-0.5 text-[0.625rem] font-mono">
           data/raw/
         </code>
-        . Spot a mismatch? Open an issue or submit a PR with a reference.
+        {". Spot a mismatch? Open an issue or submit a PR with a reference."}
       </p>
     ),
   },
