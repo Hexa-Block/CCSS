@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "About",
+  alternates: { canonical: "https://ccssnavigator.com/about" },
 }
 
 export const dynamic = "force-dynamic"

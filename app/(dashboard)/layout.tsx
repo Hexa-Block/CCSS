@@ -88,7 +88,7 @@ function DashboardHeader() {
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
               <BreadcrumbLink asChild>
-                <Link href="/dashboard">
+                <Link href="/">
                   {activeDocument.name} {activeDocument.version}
                 </Link>
               </BreadcrumbLink>

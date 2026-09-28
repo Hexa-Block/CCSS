@@ -56,7 +56,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 (it redirects to `/dashboard`).
+Open http://localhost:3000. The catalog is served at `/`; `/dashboard` permanently redirects there.
 
 ### Useful scripts
 

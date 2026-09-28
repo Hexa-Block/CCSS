@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import StatisticCard from "@/components/ui/cards/statistic-cards/statistic-card";
 import { columns } from "@/components/standard/columns";
 import { DataTable } from "@/components/ui/data-table";
@@ -11,6 +12,15 @@ export const fetchCache = "force-no-store";
 type RouteParams = { aspectId: string }
 
 type PageProps = { params: Promise<RouteParams> }
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { aspectId } = await params;
+  return {
+    alternates: {
+      canonical: `https://ccssnavigator.com/dashboard/aspect/${encodeURIComponent(aspectId)}`,
+    },
+  };
+}
 
 async function getData(params: RouteParams): Promise<RequirementRow[]> {
   return getRequirements({ aspectId: params.aspectId });

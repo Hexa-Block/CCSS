@@ -97,7 +97,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip="Dashboard">
-                <Link href="/dashboard">
+                <Link href="/">
                   <HugeiconsIcon icon={DashboardSquare01Icon} strokeWidth={2} />
                   <span>Dashboard</span>
                 </Link>
