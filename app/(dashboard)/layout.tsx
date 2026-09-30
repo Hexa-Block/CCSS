@@ -66,6 +66,7 @@ function DashboardHeader() {
   const params = useParams<{ aspectId?: string }>()
   const aspectId = params?.aspectId ?? null
   const isAbout = pathname?.startsWith("/about")
+  const isPrivacy = pathname?.startsWith("/privacy")
   const aspectCategory = React.useMemo(
     () => (aspectId ? getAspectCategoryById(aspectId) : null),
     [aspectId]
@@ -76,7 +77,7 @@ function DashboardHeader() {
   )
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+    <header className="sticky top-0 z-30 flex h-16 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur transition-[width,height] ease-linear supports-[backdrop-filter]:bg-background/80 group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
       <div className="flex w-full items-center gap-2 px-4">
         <SidebarTrigger className="-ml-1" />
         <Separator
@@ -120,11 +121,11 @@ function DashboardHeader() {
                   </>
                 ) : null}
               </>
-            ) : isAbout ? (
+            ) : isAbout || isPrivacy ? (
               <>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>About</BreadcrumbPage>
+                  <BreadcrumbPage>{isPrivacy ? "Privacy and cookies" : "About"}</BreadcrumbPage>
                 </BreadcrumbItem>
               </>
             ) : null}

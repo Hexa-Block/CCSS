@@ -16,7 +16,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Wallet01Icon, Shield01Icon, InformationCircleIcon, DashboardSquare01Icon } from "@hugeicons/core-free-icons"
+import { Wallet01Icon, Shield01Icon, InformationCircleIcon, DashboardSquare01Icon, PolicyIcon } from "@hugeicons/core-free-icons"
 import Link from "next/link"
 
 // This is sample data.
@@ -113,6 +113,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <Link href="/about">
                   <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} />
                   <span>About</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild tooltip="Privacy and cookies">
+                <Link href="/privacy">
+                  <HugeiconsIcon icon={PolicyIcon} strokeWidth={2} />
+                  <span>Privacy and cookies</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
